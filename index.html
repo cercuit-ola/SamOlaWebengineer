@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #0A0A0B; }
+  ::selection { background: #C8F250; color: #0A0A0B; }
+  @keyframes soRise { from { transform: translateY(24px); } to { transform: translateY(0); } }
+  @keyframes soFade { from { transform: translateY(10px); } to { transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  @keyframes soMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes soPulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+  @media (max-width: 860px) {
+    .so-hero-grid { grid-template-columns: 1fr !important; }
+    .so-hero-photo { order: -1; max-width: 340px; width: 100%; margin: 0 auto; }
+  }
+  @media (max-width: 720px) {
+    .so-nav-links { display: none !important; }
+    .so-hero-h { font-size: 12vw !important; }
+    .so-sec-h { font-size: 10vw !important; }
+  }
+</style>
+</helmet>
+
+<div ref="{{ setRoot }}" style="--ac:#C8F250; --ac-soft:rgba(200,242,80,0.13); --ac-line:rgba(200,242,80,0.4); background:#0A0A0B; color:#F2F1ED; font-family:'Instrument Sans',-apple-system,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; position:relative;">
+
+  <!-- NAV -->
+  <header style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,64px); backdrop-filter:blur(14px); background:rgba(10,10,11,0.62); border-bottom:1px solid rgba(255,255,255,0.07);">
+    <a href="#top" style="display:flex; align-items:center; gap:11px; text-decoration:none; color:#F2F1ED;">
+      <span style="display:grid; place-items:center; width:34px; height:34px; background:var(--ac); border-radius:9px; font-family:'JetBrains Mono',monospace; font-weight:600; font-size:14px; color:#14140A;">SO</span>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.02em; color:#B9B9B4;">samuel<span style="color:var(--ac);">.</span>dev</span>
+    </a>
+    <nav class="so-nav-links" style="display:flex; align-items:center; gap:34px; font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:0.03em;">
+      <a data-nav="work" href="#work" style="text-decoration:none; color:#A0A09B; transition:color .2s;">work</a>
+      <a data-nav="performance" href="#performance" style="text-decoration:none; color:#A0A09B; transition:color .2s;">performance</a>
+      <a data-nav="about" href="#about" style="text-decoration:none; color:#A0A09B; transition:color .2s;">about</a>
+      <a data-nav="contact" href="#contact" style="text-decoration:none; color:#A0A09B; transition:color .2s;">contact</a>
+    </nav>
+    <a href="mailto:samuelcenaokediji@gmail.com" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:0.02em; text-decoration:none; color:#0A0A0B; background:var(--ac); padding:9px 16px; border-radius:8px; font-weight:600; transition:transform .2s;" style-hover="transform:translateY(-2px);">let's talk →</a>
+  </header>
+
+  <!-- HERO (cream) -->
+  <section id="top" style="position:relative; background:#EFE9DC; overflow:hidden;">
+    <div style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(132% 96% at 50% -12%, rgba(255,205,133,0.55), rgba(239,233,220,0) 56%), radial-gradient(96% 74% at 50% -4%, rgba(200,242,80,0.30), transparent 60%), linear-gradient(180deg,#F5F0E5 0%,#E7DFCD 100%);"></div>
+    <div class="so-hero-grid" style="position:relative; max-width:1320px; margin:0 auto; padding:clamp(118px,15vh,176px) clamp(20px,5vw,64px) clamp(56px,8vh,96px); display:grid; grid-template-columns:minmax(0,1.22fr) minmax(0,0.82fr); gap:clamp(28px,5vw,68px); align-items:center;">
+      <div>
+        <div style="display:flex; align-items:center; gap:13px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:#6E6A5C; text-transform:uppercase; margin-bottom:28px; animation:soFade .8s ease both;">
+          <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#7d9a16; animation:soPulse 2s infinite;"></span>
+          Frontend Engineer · Fullstack JavaScript · Lagos → Global
+        </div>
+        <h1 class="so-hero-h" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(42px,5.6vw,84px); line-height:0.99; letter-spacing:-0.025em; color:#19170F; margin:0 0 30px; max-width:15ch; animation:soRise .8s ease both; animation-delay:.06s;">
+          I build <span style="background:var(--ac); color:#14140A; padding:0 .14em; border-radius:6px; box-decoration-break:clone; -webkit-box-decoration-break:clone;">fast</span>, search-ready interfaces that ship to production.
+        </h1>
+        <p style="max-width:54ch; font-size:clamp(16px,1.4vw,19px); line-height:1.62; color:#56524A; margin:0 0 36px; animation:soRise .8s ease both; animation-delay:.14s;">
+          I'm Samuel Okediji — a frontend engineer with 5+ years shipping production sites across React, Next.js, TypeScript, WordPress, and vanilla HTML/CSS/JS. I obsess over the things users feel: load time, Core Web Vitals, and SEO that actually ranks.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:13px; margin-bottom:24px; animation:soRise .8s ease both; animation-delay:.2s;">
+          <a href="#work" style="font-family:'JetBrains Mono',monospace; font-size:13px; text-decoration:none; color:#14140A; background:var(--ac); padding:14px 24px; border-radius:10px; font-weight:600; transition:transform .2s;" style-hover="transform:translateY(-2px);">View selected work ↓</a>
+          <a href="uploads/Samuel_Okediji_Frontend_CV_with_Live_Work.docx" download style="font-family:'JetBrains Mono',monospace; font-size:13px; text-decoration:none; color:#1C1A12; border:1px solid rgba(28,24,12,0.22); padding:14px 24px; border-radius:10px; transition:border-color .2s, background .2s;" style-hover="border-color:#1C1A12; background:rgba(28,24,12,0.04);">Download CV</a>
+        </div>
+        <div style="display:inline-flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:12px; color:#5C584D; padding:11px 16px; border:1px dashed rgba(28,24,12,0.28); border-radius:10px; margin-bottom:46px; animation:soRise .8s ease both; animation-delay:.24s;">
+          <span style="width:7px; height:7px; border-radius:50%; background:#7d9a16; animation:soPulse 2s infinite;"></span>
+          Open to relocation &amp; visa sponsorship
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:1px; background:rgba(28,24,12,0.13); border:1px solid rgba(28,24,12,0.13); border-radius:16px; overflow:hidden; animation:soRise .8s ease both; animation-delay:.3s;">
+          <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+            <div style="background:#F1EBDF; padding:22px 20px;">
+              <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:32px; line-height:1; color:#1A180F; margin-bottom:7px;">{{ m.value }}</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.05em; color:#7C7768; text-transform:uppercase;">{{ m.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div class="so-hero-photo" style="position:relative; animation:soRise .9s ease both; animation-delay:.12s;">
+        <div style="position:absolute; left:50%; top:5%; transform:translateX(-50%); width:110%; height:90%; background:radial-gradient(58% 56% at 50% 32%, rgba(200,242,80,0.6), transparent 72%); filter:blur(28px); pointer-events:none;"></div>
+        <div style="position:relative; aspect-ratio:4/5; border-radius:240px 240px 24px 24px; overflow:hidden; box-shadow:0 38px 84px -34px rgba(74,62,30,0.55); border:1px solid rgba(28,24,12,0.08);">
+          <img src="assets/samuel-portrait.jpg" alt="Samuel Okediji, frontend engineer" style="width:100%; height:100%; object-fit:cover; object-position:center 22%; display:block;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div style="background:#0A0A0B; border-top:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07); padding:18px 0; overflow:hidden; white-space:nowrap;">
+    <div style="display:inline-flex; gap:42px; animation:soMarquee 28s linear infinite; font-family:'Bricolage Grotesque',sans-serif; font-size:20px; font-weight:500; color:#3A3A38;">
+      <sc-for list="{{ marquee }}" as="t" hint-placeholder-count="20">
+        <span style="display:inline-flex; align-items:center; gap:42px;">{{ t }}<span style="color:var(--ac);">/</span></span>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- divider -->
+  <div style="max-width:1320px; margin:0 auto; padding:clamp(16px,3.2vh,38px) clamp(20px,5vw,64px);">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span style="width:7px; height:7px; transform:rotate(45deg); background:var(--ac); flex:none;"></span>
+      <span style="flex:1; height:1px; background:repeating-linear-gradient(90deg, rgba(255,255,255,0.22) 0 5px, transparent 5px 11px);"></span>
+      <span style="width:7px; height:7px; transform:rotate(45deg); border:1px solid rgba(255,255,255,0.3); flex:none;"></span>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work" style="background:#0A0A0B; padding:clamp(56px,9vh,104px) clamp(20px,5vw,64px);">
+    <div style="max-width:1320px; margin:0 auto;">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:52px;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:var(--ac); text-transform:uppercase; margin-bottom:16px;">01 — Selected Work</div>
+          <h2 class="so-sec-h" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(34px,5vw,68px); line-height:1; letter-spacing:-0.02em; color:#F2F1ED; margin:0;">Live, in production.</h2>
+        </div>
+        <p style="max-width:34ch; font-size:15px; line-height:1.6; color:#8C8C86; margin:0;">Every project below is a real, public URL — not a mockup. Click any card to see the deployed work.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(390px,1fr)); gap:24px;">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="8">
+          <a href="{{ p.href }}" target="_blank" rel="noopener noreferrer" style="display:flex; flex-direction:column; text-decoration:none; color:inherit; background:#0E0E10; border:1px solid rgba(255,255,255,0.08); border-radius:16px; overflow:hidden; transition:transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s, box-shadow .35s;" style-hover="transform:translateY(-6px); border-color:var(--ac-line); box-shadow:0 24px 60px -30px rgba(0,0,0,0.9);">
+            <div style="background:#161618; border-bottom:1px solid rgba(255,255,255,0.06);">
+              <div style="display:flex; align-items:center; gap:7px; padding:11px 14px;">
+                <span style="width:9px; height:9px; border-radius:50%; background:#3A3A3C;"></span>
+                <span style="width:9px; height:9px; border-radius:50%; background:#3A3A3C;"></span>
+                <span style="width:9px; height:9px; border-radius:50%; background:#3A3A3C;"></span>
+                <span style="margin-left:10px; font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#6A6A66; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ p.url }}</span>
+              </div>
+              <div style="height:230px; overflow:hidden; position:relative;">
+                <img src="{{ p.img }}" alt="{{ p.name }} live site" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:top center; display:block;">
+              </div>
+            </div>
+            <div style="padding:26px 26px 28px; display:flex; flex-direction:column; gap:13px; flex:1;">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#5E5E5A;">{{ p.n }}</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.05em; text-transform:uppercase; color:var(--ac); background:var(--ac-soft); padding:4px 10px; border-radius:20px;">{{ p.tag }}</span>
+              </div>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:26px; line-height:1.05; letter-spacing:-0.01em; color:#F2F1ED; margin:0;">{{ p.name }}</h3>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:#86867F; letter-spacing:0.01em;">{{ p.stack }}</div>
+              <p style="font-size:14.5px; line-height:1.55; color:#9C9C96; margin:0;">{{ p.desc }}</p>
+              <div style="display:flex; align-items:flex-start; gap:9px; margin-top:auto; padding-top:14px; border-top:1px solid rgba(255,255,255,0.06);">
+                <span style="color:var(--ac); font-size:13px; line-height:1.5;">▴</span>
+                <span style="font-size:13px; line-height:1.5; color:#B6B6AF;">{{ p.perf }}</span>
+              </div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+
+      <!-- additional -->
+      <div style="margin-top:28px; display:flex; align-items:flex-start; gap:18px; flex-wrap:wrap; background:#0C0C0E; border:1px dashed rgba(255,255,255,0.13); border-radius:14px; padding:24px 26px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ac); padding-top:3px;">Also</span>
+        <div style="flex:1; min-width:240px;">
+          <a href="https://cercuit-ola.github.io/Nigeria-GRACE-FO" target="_blank" rel="noopener noreferrer" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:19px; color:#F2F1ED; text-decoration:none; transition:color .2s;" style-hover="color:var(--ac);">Nigeria GRACE-FO Visualizer ↗</a>
+          <p style="font-size:14px; line-height:1.55; color:#8C8C86; margin:8px 0 0;">Interactive research data visualizer for satellite hydrology datasets — built in HTML/CSS/JS, underpinning a manuscript published in <span style="color:#B6B6AF;">Environmental Earth Sciences (Springer)</span>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- divider -->
+  <div style="max-width:1320px; margin:0 auto; padding:clamp(16px,3.2vh,38px) clamp(20px,5vw,64px);">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span style="width:7px; height:7px; transform:rotate(45deg); background:var(--ac); flex:none;"></span>
+      <span style="flex:1; height:1px; background:repeating-linear-gradient(90deg, rgba(255,255,255,0.22) 0 5px, transparent 5px 11px);"></span>
+      <span style="width:7px; height:7px; transform:rotate(45deg); border:1px solid rgba(255,255,255,0.3); flex:none;"></span>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE & SEO -->
+  <section id="performance" style="position:relative; padding:clamp(56px,9vh,104px) clamp(20px,5vw,64px); background:linear-gradient(180deg,#F3EDE1,#EFE7D6);">
+    <div style="max-width:1320px; margin:0 auto;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:#5f7a07; text-transform:uppercase; margin-bottom:16px;">02 — Performance &amp; SEO</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:28px; align-items:end; margin-bottom:56px;">
+        <h2 class="so-sec-h" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(34px,5vw,64px); line-height:1; letter-spacing:-0.02em; color:#19170F; margin:0;">Speed is a feature.<br>So is being found.</h2>
+        <p style="font-size:16px; line-height:1.65; color:#56524A; margin:0; max-width:50ch;">A site that loads slowly or can't be crawled is invisible. On every build — React app, hand-coded HTML, WordPress, or Shopify — I treat load time and search visibility as core deliverables, not afterthoughts.</p>
+      </div>
+
+      <sc-if value="{{ showMetrics }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px; background:rgba(34,24,12,0.13); border:1px solid rgba(34,24,12,0.13); border-radius:16px; overflow:hidden; margin-bottom:52px;">
+          <sc-for list="{{ perfMetrics }}" as="m" hint-placeholder-count="4">
+            <div style="background:#FAF5EA; padding:30px 26px;">
+              <div style="width:26px; height:4px; border-radius:3px; background:var(--ac); margin-bottom:16px;"></div>
+              <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:46px; line-height:1; color:#1C1810; margin-bottom:12px;">{{ m.value }}</div>
+              <div style="font-size:14px; color:#3F3A2C; font-weight:600; margin-bottom:5px;">{{ m.label }}</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#8C8268;">{{ m.sub }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;">
+        <sc-for list="{{ platforms }}" as="pl" hint-placeholder-count="4">
+          <div style="background:#FAF5EA; border:1px solid rgba(34,24,12,0.1); border-radius:14px; padding:26px; box-shadow:0 12px 28px -22px rgba(60,44,18,0.4);">
+            <div style="display:flex; align-items:center; gap:11px; margin-bottom:16px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#3C4A0E; background:rgba(200,242,80,0.4); border-radius:7px; padding:4px 9px;">{{ pl.k }}</span>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:18px; color:#211B11; margin:0; letter-spacing:-0.01em;">{{ pl.title }}</h3>
+            </div>
+            <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;">
+              <sc-for list="{{ pl.points }}" as="pt" hint-placeholder-count="3">
+                <li style="display:flex; gap:9px; font-size:13.5px; line-height:1.5; color:#5C5443;"><span style="color:#6f8b13;">→</span>{{ pt }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- divider -->
+  <div style="max-width:1320px; margin:0 auto; padding:clamp(16px,3.2vh,38px) clamp(20px,5vw,64px);">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span style="width:7px; height:7px; transform:rotate(45deg); background:var(--ac); flex:none;"></span>
+      <span style="flex:1; height:1px; background:repeating-linear-gradient(90deg, rgba(255,255,255,0.22) 0 5px, transparent 5px 11px);"></span>
+      <span style="width:7px; height:7px; transform:rotate(45deg); border:1px solid rgba(255,255,255,0.3); flex:none;"></span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" style="background:#0A0A0B; padding:clamp(56px,9vh,104px) clamp(20px,5vw,64px);">
+    <div style="max-width:1320px; margin:0 auto;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:var(--ac); text-transform:uppercase; margin-bottom:16px;">03 — About &amp; Experience</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:clamp(40px,6vw,90px);">
+        <div>
+          <h2 class="so-sec-h" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(30px,4vw,48px); line-height:1.05; letter-spacing:-0.02em; color:#F2F1ED; margin:0 0 26px;">From physics labs to production frontends.</h2>
+          <p style="font-size:16px; line-height:1.7; color:#A0A09A; margin:0 0 18px;">I come at frontend with an engineer's discipline. Alongside 5+ years building interfaces, I spent 4+ years operating the Node.js, AWS, and Kubernetes infrastructure behind them — so I understand a product end to end: design handoff, component architecture, backend integration, and deployment.</p>
+          <p style="font-size:16px; line-height:1.7; color:#A0A09A; margin:0 0 34px;">That range is why my work spans fintech, travel, real estate, talent, Web3, and scientific research — and why each one runs fast and ranks well in the wild.</p>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden;">
+            <div style="background:#0E0E10; padding:22px;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; color:#6E6E68; text-transform:uppercase; margin-bottom:14px;">Education</div>
+              <div style="font-size:14.5px; color:#D6D6CF; line-height:1.45; margin-bottom:12px;">BSc Physics — FUNAAB<br><span style="color:#7C7C76; font-size:13px;">Thesis published, Springer (2019)</span></div>
+              <div style="font-size:14.5px; color:#D6D6CF; line-height:1.45;">MA, Cultural Resource Mgmt — UNESCO Chair, Univ. of Arts Belgrade</div>
+            </div>
+            <div style="background:#0E0E10; padding:22px;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; color:#6E6E68; text-transform:uppercase; margin-bottom:14px;">Certifications</div>
+              <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;">
+                <li style="font-size:13.5px; color:#A0A09A; display:flex; gap:8px;"><span style="color:var(--ac);">·</span>AWS Cloud Practitioner</li>
+                <li style="font-size:13.5px; color:#A0A09A; display:flex; gap:8px;"><span style="color:var(--ac);">·</span>Architecting with Google Cloud</li>
+                <li style="font-size:13.5px; color:#A0A09A; display:flex; gap:8px;"><span style="color:var(--ac);">·</span>AWS AI Practitioner</li>
+                <li style="font-size:13.5px; color:#A0A09A; display:flex; gap:8px;"><span style="color:var(--ac);">·</span>Intro to Cybersecurity</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#6E6E68; text-transform:uppercase; margin-bottom:24px;">Professional Experience</div>
+          <div style="position:relative; padding-left:26px; border-left:1px solid rgba(255,255,255,0.12);">
+            <sc-for list="{{ experience }}" as="e" hint-placeholder-count="4">
+              <div style="position:relative; padding-bottom:34px;">
+                <span style="position:absolute; left:-31px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--ac); box-shadow:0 0 0 4px #0A0A0B;"></span>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#6E6E68; margin-bottom:7px;">{{ e.when }}</div>
+                <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:18px; color:#F2F1ED; margin-bottom:3px;">{{ e.role }}</div>
+                <div style="font-size:13.5px; color:#86867F; margin-bottom:9px;">{{ e.org }}</div>
+                <p style="font-size:14px; line-height:1.55; color:#9C9C96; margin:0;">{{ e.desc }}</p>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:14px;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#6E6E68; text-transform:uppercase; margin-bottom:16px;">Stack</div>
+            <div style="display:flex; flex-wrap:wrap; gap:9px;">
+              <sc-for list="{{ stack }}" as="s" hint-placeholder-count="16">
+                <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#B6B6AF; background:#141416; border:1px solid rgba(255,255,255,0.08); padding:7px 13px; border-radius:8px;">{{ s }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- divider -->
+  <div style="max-width:1320px; margin:0 auto; padding:clamp(16px,3.2vh,38px) clamp(20px,5vw,64px);">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span style="width:7px; height:7px; transform:rotate(45deg); background:var(--ac); flex:none;"></span>
+      <span style="flex:1; height:1px; background:repeating-linear-gradient(90deg, rgba(255,255,255,0.22) 0 5px, transparent 5px 11px);"></span>
+      <span style="width:7px; height:7px; transform:rotate(45deg); border:1px solid rgba(255,255,255,0.3); flex:none;"></span>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" style="position:relative; padding:clamp(64px,11vh,124px) clamp(20px,5vw,64px) clamp(40px,6vh,70px); background:#F2ECDF; overflow:hidden;">
+    <div style="position:absolute; bottom:-30%; left:50%; transform:translateX(-50%); width:800px; height:600px; background:radial-gradient(circle, var(--ac-soft), transparent 70%); pointer-events:none;"></div>
+    <div style="position:relative; max-width:1000px; margin:0 auto; text-align:center;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:#5f7a07; text-transform:uppercase; margin-bottom:24px;">04 — Let's build something fast</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(40px,7vw,92px); line-height:0.98; letter-spacing:-0.025em; color:#19170F; margin:0 0 30px;">Available for your<br>next frontend role.</h2>
+      <p style="font-size:17px; line-height:1.6; color:#56524A; max-width:52ch; margin:0 auto 44px;">On-site, hybrid, or remote — open to international relocation &amp; visa sponsorship. If you need someone who ships fast, ranking, production-grade interfaces, let's talk.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom:54px;">
+        <a href="mailto:samuelcenaokediji@gmail.com" style="font-family:'JetBrains Mono',monospace; font-size:14px; text-decoration:none; color:#0A0A0B; background:var(--ac); padding:16px 30px; border-radius:11px; font-weight:600; transition:transform .2s;" style-hover="transform:translateY(-2px);">samuelcenaokediji@gmail.com</a>
+        <a href="https://github.com/cercuit-ola" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace; font-size:14px; text-decoration:none; color:#1C1A12; border:1px solid rgba(28,24,12,0.25); padding:16px 26px; border-radius:11px; transition:border-color .2s, background .2s;" style-hover="border-color:#1C1A12; background:rgba(28,24,12,0.04);">GitHub ↗</a>
+        <a href="https://linkedin.com/in/okedijisamuelolaide" target="_blank" rel="noopener noreferrer" style="font-family:'JetBrains Mono',monospace; font-size:14px; text-decoration:none; color:#1C1A12; border:1px solid rgba(28,24,12,0.25); padding:16px 26px; border-radius:11px; transition:border-color .2s, background .2s;" style-hover="border-color:#1C1A12; background:rgba(28,24,12,0.04);">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div style="position:relative; max-width:1320px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding-top:34px; border-top:1px solid rgba(34,24,12,0.14); font-family:'JetBrains Mono',monospace; font-size:12px; color:#8A7E64;">
+      <span>Samuel Olaide Okediji — Frontend Engineer</span>
+      <span>Lagos, Nigeria · {{ year }}</span>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1320,&quot;height&quot;:900},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Lime&quot;,&quot;Coral&quot;,&quot;Blue&quot;,&quot;Mono&quot;],&quot;default&quot;:&quot;Lime&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showPerfMetrics&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { active: 'top' };
+
+  accents = {
+    Lime: ['#C8F250', 'rgba(200,242,80,0.13)', 'rgba(200,242,80,0.4)'],
+    Coral: ['#FF6A3D', 'rgba(255,106,61,0.14)', 'rgba(255,106,61,0.42)'],
+    Blue: ['#5B8CFF', 'rgba(91,140,255,0.16)', 'rgba(91,140,255,0.42)'],
+    Mono: ['#ECECE7', 'rgba(255,255,255,0.14)', 'rgba(255,255,255,0.4)']
+  };
+
+  applyAccent() {
+    if (!this._root) return;
+    const a = this.accents[this.props.accentColor] || this.accents.Lime;
+    this._root.style.setProperty('--ac', a[0]);
+    this._root.style.setProperty('--ac-soft', a[1]);
+    this._root.style.setProperty('--ac-line', a[2]);
+  }
+
+  componentDidMount() {
+    this.applyAccent();
+    const ids = ['work', 'performance', 'about', 'contact'];
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) this._setActive(e.target.id);
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) this._io.observe(el);
+    });
+  }
+
+  _setActive(id) {
+    document.querySelectorAll('[data-nav]').forEach((a) => {
+      const on = a.getAttribute('data-nav') === id;
+      a.style.color = on ? 'var(--ac)' : '#A0A09B';
+    });
+  }
+
+  componentDidUpdate() { this.applyAccent(); }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+
+  renderVals() {
+    return {
+      setRoot: (el) => { this._root = el; this.applyAccent(); },
+      year: new Date().getFullYear(),
+      showMetrics: this.props.showPerfMetrics ?? true,
+
+      metrics: [
+        { value: '5+', label: 'Years frontend' },
+        { value: '25+', label: 'Live sites shipped' },
+        { value: '4+', label: 'Years infra / DevOps' },
+        { value: '7', label: 'Industries served' }
+      ],
+
+      marquee: ['React', 'Next.js', 'TypeScript', 'WordPress', 'Shopify', 'Node.js', 'Tailwind CSS', 'Elementor', 'HTML5 / CSS3', 'ethers.js'],
+
+      projects: [
+        { n: '01', name: 'NexolPay', tag: 'Fintech', stack: 'Next.js · Node.js · TypeScript', desc: 'Live fintech product converting gift cards into cash. Built the full conversion flow, dashboard UX, and backend integration end to end.', perf: 'Server-rendered routes and code-split dashboard for fast first paint.', url: 'nexolpay.xyz', href: 'https://nexolpay.xyz', img: 'assets/nexolpay.png' },
+        { n: '02', name: 'Rooted Journeys', tag: 'Travel', stack: 'WordPress · Elementor', desc: 'Luxury family-travel agency with custom templates for trips, destinations, and a consultation booking flow across 10+ pages.', perf: 'Optimized media and lazy-loaded galleries keep a heavy visual site quick.', url: 'rootedjourneys.com', href: 'https://wordpress-1563855-6471033.cloudwaysapps.com', img: 'assets/rooted-journeys.png' },
+        { n: '03', name: 'CW Lagos', tag: 'Real Estate', stack: 'Framer', desc: 'Real-estate brokerage with property listings, search & filter, agent profiles, and shortlet booking for a luxury Lagos brand.', perf: 'CDN-delivered assets and lean interactions for a snappy browse.', url: 'cwlagos.com', href: 'https://cwlagos.com', img: 'assets/cw-lagos.png' },
+        { n: '04', name: 'Nibi Digital', tag: 'Agency', stack: 'HTML · CSS · JavaScript', desc: 'Self-built agency landing page with service tiers, package pricing, and a project-intake contact flow.', perf: 'Zero-framework and hand-tuned — near-instant loads, perfect crawlability.', url: 'cercuit-ola.github.io/Nibi-Digital', href: 'https://cercuit-ola.github.io/Nibi-Digital', img: 'assets/nibi-digital.png' },
+        { n: '05', name: 'Ani Talent', tag: 'Platform', stack: 'React · CSS', desc: 'Talent-management platform with dynamic listings, filtering, and fully responsive layouts.', perf: 'Component reuse and controlled re-renders keep listings smooth.', url: 'anitalent.com', href: 'https://anitalent.com', img: 'assets/ani-talent.png' },
+        { n: '06', name: 'Innovasol Enterprise', tag: 'Corporate', stack: 'React · Tailwind CSS', desc: 'Corporate site with animated sections and mobile-first design, built pixel-perfect from Figma.', perf: 'GPU-friendly animation and responsive images across breakpoints.', url: 'innovasolenterprise.com', href: 'https://innovasolenterprise.com', img: 'assets/innovasol.png' },
+        { n: '07', name: 'Decentralized RPC Dashboard', tag: 'Web3', stack: 'TypeScript · React · ethers.js', desc: 'Web3 dashboard monitoring Ethereum RPC endpoints with live status, latency, and uptime metrics.', perf: 'Efficient polling and memoized tables handle live data without jank.', url: 'decentralizedrpcdash.netlify.app', href: 'https://decentralizedrpcdash.netlify.app', img: 'assets/eth-rpc.png' },
+        { n: '08', name: 'Personal Journey Website', tag: 'Personal Brand', stack: 'React', desc: 'Custom-designed personal-brand site with smooth-scroll animations and a cohesive visual identity.', perf: 'Lazy-loaded imagery and tuned scroll effects stay buttery.', url: 'iamkay.co', href: 'https://iamkay.co', img: 'assets/kay-akpan.png' }
+      ],
+
+      perfMetrics: [
+        { value: '90+', label: 'Lighthouse scores', sub: 'performance / SEO targets' },
+        { value: '<1.5s', label: 'LCP target', sub: 'largest contentful paint' },
+        { value: '<0.1', label: 'CLS', sub: 'layout stability' },
+        { value: '100%', label: 'Crawlable', sub: 'semantic, indexable markup' }
+      ],
+
+      platforms: [
+        { k: 'JS', title: 'React / Next.js', points: ['SSR & SSG for instant, indexable HTML', 'Route-level code-splitting & lazy loading', 'Image optimization and disciplined hydration'] },
+        { k: '</>', title: 'HTML · CSS · JS', points: ['Zero-framework, minimal payloads', 'Critical CSS and deferred non-essentials', 'Semantic, accessible, crawl-ready markup'] },
+        { k: 'WP', title: 'WordPress', points: ['Page caching & asset minification', 'Lazy media and cleaned plugin overhead', 'Schema, meta & sitemap hygiene'] },
+        { k: 'S', title: 'Shopify', points: ['Lean Liquid themes & deferred scripts', 'Right-sized, responsive product imagery', 'App audit to protect store speed'] }
+      ],
+
+      experience: [
+        { when: 'Feb 2023 – Nov 2025', role: 'DevOps Engineer', org: 'Bunzz — Singapore (Remote)', desc: 'Built and maintained CI/CD pipelines and developer APIs ensuring zero-downtime deployments for frontend tooling used by thousands of Web3 developers.' },
+        { when: 'Jan 2023 – Dec 2023', role: 'Technical Writer / DevRel', org: 'SettleMint — Belgium (Remote)', desc: 'Designed and built a developer documentation portal and interactive code examples, improving UX for frontend-facing blockchain resources.' },
+        { when: 'Sep 2019 – Aug 2020', role: 'Web Developer', org: 'PayPorte — Lagos, Nigeria', desc: 'Built frontend features for a high-traffic e-commerce platform, improved page load times, and shipped responsive, reusable UI across listing and checkout.' },
+        { when: 'Feb 2018 – Feb 2019', role: 'Backend Software Engineer', org: 'Ideate Digital — Lagos, Nigeria', desc: 'Built APIs consumed by frontend apps and contributed to frontend integration testing across client-facing web products.' }
+      ],
+
+      stack: ['React.js', 'Next.js', 'TypeScript', 'JavaScript ES6+', 'HTML5', 'CSS3', 'Tailwind CSS', 'Styled Components', 'WordPress', 'Elementor', 'PHP', 'Node.js', 'Express.js', 'PostgreSQL', 'ethers.js', 'AWS', 'Docker', 'Vite']
+    };
+  }
+}
+</script>
+</body>
+</html>

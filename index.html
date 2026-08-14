@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<meta name="omelette-print-source" content="v1786708764305886 Portfolio.dc.html">
 </head>
 <body>
 <x-dc>
@@ -46,6 +47,9 @@
     .so-hero-h { font-size: 12vw !important; }
     .so-sec-h { font-size: 10vw !important; }
   }
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  * { animation-delay: -99s !important; animation-duration: .001s !important; animation-iteration-count: 1 !important; animation-fill-mode: both !important; animation-play-state: running !important; transition-duration: 0s !important; }
+  header { position: static !important; }
 </style>
 </helmet>
 
@@ -399,9 +403,9 @@ class Component extends DCLogic {
 
       projects: [
         { n: '01', name: 'NexolPay', tag: 'Fintech', stack: 'Next.js · Node.js · TypeScript', desc: 'Live fintech product converting gift cards into cash. Built the full conversion flow, dashboard UX, and backend integration end to end.', perf: 'Server-rendered routes and code-split dashboard for fast first paint.', url: 'nexolpay.xyz', href: 'https://nexolpay.xyz', img: 'assets/nexolpay.png' },
-        { n: '02', name: 'Rooted Journeys', tag: 'Travel', stack: 'WordPress · Elementor', desc: 'Luxury family-travel agency with custom templates for trips, destinations, and a consultation booking flow across 10+ pages.', perf: 'Optimized media and lazy-loaded galleries keep a heavy visual site quick.', url: 'rootedjourneys.com [NEEDS NEW LINK]', href: 'https://wordpress-1563855-6471033.cloudwaysapps.com', img: 'assets/rooted-journeys.png' },
-        { n: '03', name: 'CW Lagos', tag: 'Real Estate', stack: 'Framer', desc: 'Real-estate brokerage with property listings, search & filter, agent profiles, and shortlet booking for a luxury Lagos brand.', perf: 'CDN-delivered assets and lean interactions for a snappy browse.', url: 'cwlagos.com', href: 'https://cwlagos.com', img: 'assets/cw-lagos.png' },
-        { n: '04', name: 'Ani Talent', tag: 'Platform', stack: 'React · CSS', desc: 'Talent-management platform with dynamic listings, filtering, and fully responsive layouts.', perf: 'Component reuse and controlled re-renders keep listings smooth.', url: 'anitalent.com', href: 'https://anitalent.com', img: 'assets/ani-talent.png' },
+        { n: '02', name: 'Rooted Journeys', tag: 'Travel', stack: 'WordPress · Elementor', desc: 'Luxury family-travel agency with custom templates for trips, destinations, and a consultation booking flow across 10+ pages.', perf: 'Optimized media and lazy-loaded galleries keep a heavy visual site quick.', url: 'rootedjourneys.com', href: 'https://phpstack-1563855-6504988.cloudwaysapps.com/', img: 'assets/rooted-journeys.png' },
+        { n: '03', name: 'CW Lagos', tag: 'Real Estate', stack: 'WordPress · Framer', desc: 'Real-estate brokerage with property listings, search & filter, agent profiles, and shortlet booking for a luxury Lagos brand.', perf: 'CDN-delivered assets and lean interactions for a snappy browse.', url: 'cwlagos.com', href: 'https://cwlagos.com', img: 'assets/cw-lagos.png' },
+        { n: '04', name: 'Ani Talent', tag: 'Platform', stack: 'WordPress', desc: 'Talent-management platform with dynamic listings, filtering, and fully responsive layouts.', perf: 'Component reuse and controlled re-renders keep listings smooth.', url: 'anitalent.com', href: 'https://anitalent.com', img: 'assets/ani-talent.png' },
         { n: '05', name: 'Decentralized RPC Dashboard', tag: 'Web3', stack: 'TypeScript · React · ethers.js', desc: 'Web3 dashboard monitoring Ethereum RPC endpoints with live status, latency, and uptime metrics.', perf: 'Efficient polling and memoized tables handle live data without jank.', url: 'decentralizedrpcdash.netlify.app', href: 'https://decentralizedrpcdash.netlify.app', img: 'assets/eth-rpc.png' },
         { n: '06', name: 'MartX', tag: 'Commerce', stack: 'Next.js · TypeScript · AI', desc: 'Africa-focused live commerce marketplace: live shopping, AI try-on, gift cards, and crypto/wallet checkout.', perf: 'Streaming-friendly routes and optimized media keep live product feeds fast.', url: 'martx.io', href: 'https://www.martx.io', img: 'assets/martx.png' },
         { n: '07', name: 'Asooke Fashion', tag: 'E-commerce', stack: 'React · Crypto Checkout', desc: 'Luxury Aṣọ Òkè fashion storefront with a full product catalog, cart/checkout flow, and crypto payments via NOWPayments.', perf: 'Optimized product imagery and lean checkout for a fast, global-ready store.', url: 'asookefashion.com', href: 'https://asookefashion.com', img: 'https://asookefashion.com/assets/model-maroon.png' }

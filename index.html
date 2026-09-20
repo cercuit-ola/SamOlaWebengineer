@@ -38,6 +38,23 @@
   .so-cube-face.t { background: linear-gradient(135deg, rgba(200,242,80,0.65), rgba(120,180,20,0.25)); transform: rotateX(90deg) translateZ(23px); }
   .so-cube-face.d { background: linear-gradient(135deg, rgba(200,242,80,0.2), rgba(120,180,20,0.08)); transform: rotateX(-90deg) translateZ(23px); }
   @keyframes soCubeSpin { from { transform: rotateX(-18deg) rotateY(0deg); } to { transform: rotateX(-18deg) rotateY(360deg); } }
+  .so-web3-grid { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr); gap:clamp(30px,6vw,90px); align-items:center; }
+  .so-web3-scene { position:relative; min-height:560px; perspective:1100px; overflow:hidden; border:1px solid rgba(200,242,80,0.18); background:radial-gradient(circle at 50% 44%, rgba(200,242,80,0.18), transparent 28%), linear-gradient(145deg,#121814,#090B0B 68%); }
+  .so-web3-scene::before { content:''; position:absolute; inset:12%; border:1px solid rgba(255,255,255,0.08); transform:rotateX(66deg) rotateZ(18deg); box-shadow:0 0 0 34px rgba(200,242,80,0.02),0 0 0 68px rgba(200,242,80,0.02); }
+  .so-web3-gridline { position:absolute; inset:22% 12%; background:linear-gradient(rgba(200,242,80,0.11) 1px,transparent 1px),linear-gradient(90deg,rgba(200,242,80,0.11) 1px,transparent 1px); background-size:42px 42px; transform:rotateX(68deg) rotateZ(18deg) translateZ(-80px); opacity:.7; }
+  .so-web3-core { position:absolute; left:50%; top:48%; width:150px; height:150px; transform:translate(-50%,-50%) rotateX(-20deg) rotateY(-28deg); transform-style:preserve-3d; transition:transform .2s ease-out; animation:soCoreFloat 7s ease-in-out infinite; }
+  .so-web3-face { position:absolute; inset:0; display:grid; place-items:center; border:1px solid rgba(200,242,80,0.7); background:linear-gradient(135deg,rgba(200,242,80,.42),rgba(14,25,17,.88)); box-shadow:inset 0 0 35px rgba(200,242,80,.16),0 0 34px rgba(200,242,80,.12); }
+  .so-web3-face.front { transform:translateZ(75px); } .so-web3-face.back { transform:rotateY(180deg) translateZ(75px); } .so-web3-face.right { transform:rotateY(90deg) translateZ(75px); } .so-web3-face.left { transform:rotateY(-90deg) translateZ(75px); } .so-web3-face.top { transform:rotateX(90deg) translateZ(75px); } .so-web3-face.bottom { transform:rotateX(-90deg) translateZ(75px); }
+  .so-web3-face span { font-family:'JetBrains Mono',monospace; font-size:17px; letter-spacing:.16em; color:#DFFF92; }
+  .so-web3-orbit { position:absolute; left:50%; top:48%; width:300px; height:118px; border:1px solid rgba(200,242,80,.52); border-radius:50%; transform:translate(-50%,-50%) rotateX(67deg) rotateZ(-18deg); transform-style:preserve-3d; animation:soOrbit 9s linear infinite; }
+  .so-web3-orbit.two { width:410px; height:170px; border-color:rgba(255,255,255,.18); transform:translate(-50%,-50%) rotateX(67deg) rotateZ(44deg); animation-duration:13s; animation-direction:reverse; }
+  .so-web3-node { position:absolute; width:11px; height:11px; border-radius:50%; background:var(--ac); box-shadow:0 0 0 5px rgba(200,242,80,.1),0 0 24px var(--ac); }
+  .so-web3-orbit .so-web3-node:first-child { left:8%; top:12%; } .so-web3-orbit .so-web3-node:last-child { right:4%; bottom:18%; }
+  .so-web3-label { position:absolute; font-family:'JetBrains Mono',monospace; font-size:10px; color:#8EA96A; letter-spacing:.08em; text-transform:uppercase; }
+  .so-web3-label.one { left:28px; top:30px; } .so-web3-label.two { right:28px; bottom:30px; text-align:right; }
+  @keyframes soCoreFloat { 0%,100% { margin-top:0; } 50% { margin-top:-12px; } }
+  @keyframes soOrbit { from { transform:translate(-50%,-50%) rotateX(67deg) rotateZ(-18deg) rotateZ(0deg); } to { transform:translate(-50%,-50%) rotateX(67deg) rotateZ(-18deg) rotateZ(360deg); } }
+  @media (max-width: 860px) { .so-web3-grid { grid-template-columns:1fr; } .so-web3-scene { min-height:420px; } }
   @media (max-width: 860px) {
     .so-hero-grid { grid-template-columns: 1fr !important; }
     .so-hero-photo { order: -1; max-width: 340px; width: 100%; margin: 0 auto; }
@@ -48,7 +65,6 @@
     .so-sec-h { font-size: 10vw !important; }
   }
 * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  * { animation-delay: -99s !important; animation-duration: .001s !important; animation-iteration-count: 1 !important; animation-fill-mode: both !important; animation-play-state: running !important; transition-duration: 0s !important; }
   header { position: static !important; }
 </style>
 </helmet>
@@ -63,6 +79,7 @@
     </a>
     <nav class="so-nav-links" style="display:flex; align-items:center; gap:34px; font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:0.03em;">
       <a data-nav="work" href="#work" style="text-decoration:none; color:#A0A09B; transition:color .2s;">work</a>
+      <a data-nav="web3" href="#web3" style="text-decoration:none; color:#A0A09B; transition:color .2s;">web3</a>
       <a data-nav="performance" href="#performance" style="text-decoration:none; color:#A0A09B; transition:color .2s;">performance</a>
       <a data-nav="about" href="#about" style="text-decoration:none; color:#A0A09B; transition:color .2s;">about</a>
       <a data-nav="contact" href="#contact" style="text-decoration:none; color:#A0A09B; transition:color .2s;">contact</a>
@@ -188,6 +205,42 @@
       <span style="width:7px; height:7px; transform:rotate(45deg); border:1px solid rgba(255,255,255,0.3); flex:none;"></span>
     </div>
   </div>
+
+  <!-- WEB3 SYSTEMS -->
+  <section id="web3" style="position:relative; background:#0A0A0B; padding:clamp(72px,11vh,132px) clamp(20px,5vw,64px); overflow:hidden;">
+    <div style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(58% 70% at 82% 45%, rgba(200,242,80,0.12), transparent 68%), linear-gradient(120deg,rgba(12,21,15,.7),transparent 55%);"></div>
+    <div style="position:relative; max-width:1320px; margin:0 auto;">
+      <div class="so-web3-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
+            <div class="so-cube-scene" style="width:34px; height:34px;"><div class="so-cube" style="animation-duration:6s;"><span class="so-cube-face f" style="width:34px; height:34px; transform:translateZ(17px);"></span><span class="so-cube-face b" style="width:34px; height:34px; transform:rotateY(180deg) translateZ(17px);"></span><span class="so-cube-face r" style="width:34px; height:34px; transform:rotateY(90deg) translateZ(17px);"></span><span class="so-cube-face l" style="width:34px; height:34px; transform:rotateY(-90deg) translateZ(17px);"></span><span class="so-cube-face t" style="width:34px; height:34px; transform:rotateX(90deg) translateZ(17px);"></span><span class="so-cube-face d" style="width:34px; height:34px; transform:rotateX(-90deg) translateZ(17px);"></span></div></div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.14em; color:var(--ac); text-transform:uppercase;">02 — Web3 systems</div>
+          </div>
+          <h2 class="so-sec-h" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(38px,5.2vw,72px); line-height:.98; color:#F2F1ED; margin:0 0 28px; max-width:10ch;">Interfaces for value in motion.</h2>
+          <p style="font-size:17px; line-height:1.7; color:#A0A09A; max-width:56ch; margin:0 0 34px;">My Web3 work sits where protocol complexity meets human trust. I build the transaction surfaces people actually use: clear exchange flows, wallet-aware states, live network data, resilient API integrations, and responsive dashboards that make on-chain activity feel legible.</p>
+          <a href="https://nexolpay.xyz" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:12px; font-family:'JetBrains Mono',monospace; font-size:13px; color:#14140A; background:var(--ac); padding:14px 19px; border-radius:9px; text-decoration:none; font-weight:600;">Explore NexolPay ↗</a>
+          <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; margin-top:54px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.1);">
+            <div style="background:#0E1210; padding:22px;"><div style="font-family:'JetBrains Mono',monospace; color:var(--ac); font-size:22px; margin-bottom:10px;">01</div><h3 style="font-family:'Bricolage Grotesque',sans-serif; color:#F2F1ED; font-size:19px; margin:0 0 8px;">Product rails</h3><p style="font-size:13.5px; line-height:1.55; color:#8F988F; margin:0;">Conversion flows, quotes, status states, and transaction feedback designed around confidence.</p></div>
+            <div style="background:#0E1210; padding:22px;"><div style="font-family:'JetBrains Mono',monospace; color:var(--ac); font-size:22px; margin-bottom:10px;">02</div><h3 style="font-family:'Bricolage Grotesque',sans-serif; color:#F2F1ED; font-size:19px; margin:0 0 8px;">Protocol thinking</h3><p style="font-size:13.5px; line-height:1.55; color:#8F988F; margin:0;">RPC health, wallet boundaries, API contracts, and the edge cases between pending and settled.</p></div>
+          </div>
+        </div>
+        <div class="so-web3-scene" data-web3-scene aria-label="Interactive 3D representation of a blockchain network">
+          <div class="so-web3-gridline"></div><div class="so-web3-label one">nexolpay / settlement layer</div><div class="so-web3-label two">wallet → api → ledger</div>
+          <div class="so-web3-orbit"><span class="so-web3-node"></span><span class="so-web3-node"></span></div><div class="so-web3-orbit two"><span class="so-web3-node"></span><span class="so-web3-node"></span></div>
+          <div class="so-web3-core"><span class="so-web3-face front"><span>NX</span></span><span class="so-web3-face back"></span><span class="so-web3-face right"></span><span class="so-web3-face left"></span><span class="so-web3-face top"></span><span class="so-web3-face bottom"></span></div>
+          <div style="position:absolute; left:50%; bottom:38px; transform:translateX(-50%); width:62%; height:20px; background:rgba(200,242,80,.23); filter:blur(18px); border-radius:50%;"></div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:72px;">
+        <div style="border-top:1px solid rgba(200,242,80,.45); padding-top:17px;"><div style="font-family:'JetBrains Mono',monospace; color:#6D8255; font-size:10px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:12px;">01 / Understand</div><p style="color:#C8CDC5; font-size:15px; line-height:1.55; margin:0;">Translate wallets, rates, fees, and settlement states into a calm product model.</p></div>
+        <div style="border-top:1px solid rgba(200,242,80,.45); padding-top:17px;"><div style="font-family:'JetBrains Mono',monospace; color:#6D8255; font-size:10px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:12px;">02 / Build</div><p style="color:#C8CDC5; font-size:15px; line-height:1.55; margin:0;">Ship accessible React surfaces backed by typed APIs, reusable states, and observable flows.</p></div>
+        <div style="border-top:1px solid rgba(200,242,80,.45); padding-top:17px;"><div style="font-family:'JetBrains Mono',monospace; color:#6D8255; font-size:10px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:12px;">03 / Operate</div><p style="color:#C8CDC5; font-size:15px; line-height:1.55; margin:0;">Keep the experience dependable with CI/CD, infrastructure awareness, and performance discipline.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- divider -->
+  <div style="max-width:1320px; margin:0 auto; padding:clamp(16px,3.2vh,38px) clamp(20px,5vw,64px);"><div style="display:flex; align-items:center; gap:14px;"><span style="width:7px; height:7px; transform:rotate(45deg); background:var(--ac); flex:none;"></span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg, rgba(255,255,255,0.22) 0 5px, transparent 5px 11px);"></span><span style="width:7px; height:7px; transform:rotate(45deg); border:1px solid rgba(255,255,255,0.3); flex:none;"></span></div></div>
 
   <!-- PERFORMANCE & SEO -->
   <section id="performance" style="position:relative; padding:clamp(56px,9vh,104px) clamp(20px,5vw,64px); background:linear-gradient(180deg,#F3EDE1,#EFE7D6);">
@@ -364,7 +417,7 @@ class Component extends DCLogic {
       el.classList.add('so-reveal');
       this._cardObserver.observe(el);
     });
-    const ids = ['work', 'performance', 'about', 'contact'];
+    const ids = ['work', 'web3', 'performance', 'about', 'contact'];
     this._io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) this._setActive(e.target.id);
@@ -374,6 +427,19 @@ class Component extends DCLogic {
       const el = document.getElementById(id);
       if (el) this._io.observe(el);
     });
+    const scene = document.querySelector('[data-web3-scene]');
+    const core = scene?.querySelector('.so-web3-core');
+    if (scene && core) {
+      this._web3Move = (event) => {
+        const box = scene.getBoundingClientRect();
+        const x = (event.clientX - box.left) / box.width - .5;
+        const y = (event.clientY - box.top) / box.height - .5;
+        core.style.transform = `translate(-50%,-50%) rotateX(${-20 - y * 18}deg) rotateY(${-28 + x * 24}deg)`;
+      };
+      this._web3Leave = () => { core.style.transform = 'translate(-50%,-50%) rotateX(-20deg) rotateY(-28deg)'; };
+      scene.addEventListener('pointermove', this._web3Move);
+      scene.addEventListener('pointerleave', this._web3Leave);
+    }
   }
 
   _setActive(id) {
@@ -384,7 +450,12 @@ class Component extends DCLogic {
   }
 
   componentDidUpdate() { this.applyAccent(); }
-  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    const scene = document.querySelector('[data-web3-scene]');
+    if (scene && this._web3Move) scene.removeEventListener('pointermove', this._web3Move);
+    if (scene && this._web3Leave) scene.removeEventListener('pointerleave', this._web3Leave);
+  }
 
   renderVals() {
     return {

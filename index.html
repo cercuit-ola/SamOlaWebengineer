@@ -69,18 +69,9 @@
   section[id] { scroll-margin-top:120px; }
   #reading-progress { position:fixed; top:0; left:0; width:100%; height:3px; background:var(--ac); transform:scaleX(0); transform-origin:left; z-index:100; pointer-events:none; }
   [data-nav][aria-current="location"] { color:var(--ac) !important; text-decoration:underline !important; text-underline-offset:7px; }
-  #theme-toggle { border:1px solid #777; border-radius:8px; padding:9px 12px; background:transparent; color:#F2F1ED; font:inherit; cursor:pointer; }
   :focus-visible { outline:2px solid #7d9a16; outline-offset:5px; }
-  #top, #performance, #contact, #top *, #performance *, #contact * { transition:background-color .25s ease, color .25s ease, border-color .25s ease; }
-  html[data-theme="dark"] { color-scheme:dark; }
-  html[data-theme="dark"] :is(#top,#performance,#contact) { background:#141416 !important; }
-  html[data-theme="dark"] :is(#top,#performance,#contact) > div[style*="pointer-events:none"] { opacity:0; }
-  html[data-theme="dark"] :is(#top,#performance,#contact) :is(h1,h2,h3,p,li) { color:#F2F1ED !important; }
-  html[data-theme="dark"] :is(#top,#performance,#contact) [style*="color:#"] { color:#B6B6AF !important; border-color:rgba(255,255,255,.18) !important; }
-  html[data-theme="dark"] :is(#top,#performance,#contact) :is([style*="background:#FAF5EA"],[style*="background:#F1EBDF"]) { background:#202023 !important; }
-  html[data-theme="dark"] :is(#top,#performance,#contact) [style*="background:var(--ac)"] { color:#14140A !important; }
   @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none !important; animation:none !important; } }
-  @media print { header, #reading-progress, #theme-toggle, .pdf-download { display:none !important; } .so-reveal { opacity:1 !important; transform:none !important; } }
+  @media print { header, #reading-progress, .pdf-download { display:none !important; } .so-reveal { opacity:1 !important; transform:none !important; } }
 </style>
 </helmet>
 
@@ -100,7 +91,6 @@
       <a data-nav="about" href="#about" style="text-decoration:none; color:#A0A09B; transition:color .2s;">about</a>
       <a data-nav="contact" href="#contact" style="text-decoration:none; color:#A0A09B; transition:color .2s;">contact</a>
     </nav>
-    <button id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">Dark mode</button>
     <a href="mailto:samuelcenaokediji@gmail.com" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:0.02em; text-decoration:none; color:#0A0A0B; background:var(--ac); padding:9px 16px; border-radius:8px; font-weight:600; transition:transform .2s;" style-hover="transform:translateY(-2px);">let's talk →</a>
   </header>
 
@@ -458,22 +448,6 @@ class Component extends DCLogic {
     this._resizeObserver = new ResizeObserver(this._onScroll);
     this._resizeObserver.observe(document.body);
     this._onScroll();
-    this._themeButton = document.getElementById('theme-toggle');
-    const setTheme = (theme) => {
-      document.documentElement.dataset.theme = theme;
-      this._themeButton.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
-      this._themeButton.setAttribute('aria-pressed', String(theme === 'dark'));
-      this._themeButton.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
-    };
-    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    try { const saved = localStorage.getItem('samweb-theme'); if (saved === 'light' || saved === 'dark') theme = saved; } catch {}
-    setTheme(theme);
-    this._toggleTheme = () => {
-      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-      setTheme(next);
-      try { localStorage.setItem('samweb-theme', next); } catch {}
-    };
-    this._themeButton.addEventListener('click', this._toggleTheme);
     ids.forEach((id) => {
       const el = document.getElementById(id);
       if (el) this._io.observe(el);
@@ -509,7 +483,6 @@ class Component extends DCLogic {
     window.removeEventListener('scroll', this._onScroll);
     window.removeEventListener('resize', this._onScroll);
     cancelAnimationFrame(this._scrollFrame);
-    this._themeButton?.removeEventListener('click', this._toggleTheme);
     const scene = document.querySelector('[data-web3-scene]');
     if (scene && this._web3Move) scene.removeEventListener('pointermove', this._web3Move);
     if (scene && this._web3Leave) scene.removeEventListener('pointerleave', this._web3Leave);

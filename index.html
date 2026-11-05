@@ -3,24 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Samuel Okediji | Frontend-Leaning Full-Stack Engineer</title>
-<meta name="description" content="Samuel Okediji is a frontend-leaning full-stack engineer in Lagos, Nigeria, building accessible, crawlable web products across React, Node.js, Python, and cloud infrastructure.">
+<title>Samuel Okediji | Fullstack Web Developer</title>
+<meta name="description" content="Samuel Okediji is a fullstack web developer with 6+ years of experience turning ideas into websites, web applications, and mobile app products.">
 <link rel="canonical" href="https://cercuit-ola.github.io/SamOlaWebengineer/">
+<meta name="theme-color" content="#0A0A0B">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Samuel Okediji | Frontend-Leaning Full-Stack Engineer">
-<meta property="og:description" content="Accessible, crawlable web products built across frontend, backend, and infrastructure.">
+<meta property="og:site_name" content="Samuel Okediji">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Samuel Okediji | Fullstack Web Developer">
+<meta property="og:description" content="I turn ideas into websites and mobile app products. Fullstack web developer with 6+ years of experience bringing digital products to life.">
 <meta property="og:url" content="https://cercuit-ola.github.io/SamOlaWebengineer/">
-<meta property="og:image" content="https://cercuit-ola.github.io/SamOlaWebengineer/assets/samuel-portrait.jpg">
+<meta property="og:image" content="https://cercuit-ola.github.io/SamOlaWebengineer/assets/og-portfolio.jpg">
+<meta property="og:image:secure_url" content="https://cercuit-ola.github.io/SamOlaWebengineer/assets/og-portfolio.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Samuel Okediji, Fullstack Web Developer">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Samuel Okediji | Fullstack Web Developer">
+<meta name="twitter:description" content="I turn ideas into websites and mobile app products. Fullstack web developer with 6+ years of experience bringing digital products to life.">
+<meta name="twitter:image" content="https://cercuit-ola.github.io/SamOlaWebengineer/assets/og-portfolio.jpg">
+<meta name="twitter:image:alt" content="Samuel Okediji, Fullstack Web Developer">
 <script src="./support.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Samuel Olaide Okediji",
-  "jobTitle": "Frontend-leaning Full-Stack Engineer",
+  "jobTitle": "Fullstack Web Developer",
   "url": "https://cercuit-ola.github.io/SamOlaWebengineer/",
-  "image": "https://cercuit-ola.github.io/SamOlaWebengineer/assets/samuel-portrait.jpg",
+  "image": "https://cercuit-ola.github.io/SamOlaWebengineer/assets/og-portfolio.jpg",
   "sameAs": [
     "https://github.com/cercuit-ola",
     "https://linkedin.com/in/okedijisamuelolaide"
@@ -42,10 +54,31 @@
   body { margin: 0; background: #0A0A0B; }
   ::selection { background: #C8F250; color: #0A0A0B; }
   @keyframes soRise { from { transform: translateY(24px); } to { transform: translateY(0); } }
+  @keyframes soHeroSlide { from { opacity: 0; transform: translateX(-36px); } to { opacity: 1; transform: translateX(0); } }
   @keyframes soFade { from { transform: translateY(10px); } to { transform: translateY(0); } }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   @keyframes soMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   @keyframes soPulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+  .so-hero-section { position:relative; overflow:hidden; background:linear-gradient(135deg,#F4EFE4 0%,#EEE7D8 58%,#E5DDCB 100%); }
+  .so-hero-section::before { content:''; position:absolute; width:clamp(320px,48vw,640px); height:clamp(320px,48vw,640px); right:0; top:-230px; border-radius:50%; background:radial-gradient(circle,rgba(200,242,80,.22),rgba(200,242,80,0) 68%); pointer-events:none; }
+  .so-hero-grid { position:relative; max-width:1320px; margin:0 auto; padding:clamp(148px,18vh,190px) clamp(20px,5vw,64px) clamp(64px,9vh,104px); display:grid; grid-template-columns:minmax(0,1.22fr) minmax(0,.82fr); gap:clamp(30px,5vw,72px); align-items:center; }
+  .so-hero-content { min-width:0; position:relative; z-index:1; }
+  .so-hero-kicker { display:inline-flex; align-items:center; gap:11px; margin-bottom:25px; padding:9px 13px; border:1px solid rgba(28,24,12,.14); border-radius:999px; background:rgba(255,255,255,.35); font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.11em; color:#625D50; text-transform:uppercase; animation:soFade .8s ease both; }
+  .so-hero-kicker-dot { width:8px; height:8px; border-radius:50%; background:#78951A; box-shadow:0 0 0 4px rgba(120,149,26,.12); animation:soPulse 2s infinite; }
+  .so-hero-h { max-width:12ch; margin:0 0 27px; color:#19170F; font-family:'Bricolage Grotesque',sans-serif; font-size:clamp(44px,5.1vw,76px); font-weight:700; line-height:.98; letter-spacing:-.055em; animation:soHeroSlide .8s cubic-bezier(.2,.7,.2,1) both; animation-delay:.06s; }
+  .so-hero-h em { color:#718B1B; font-style:normal; text-decoration:underline; text-decoration-color:rgba(113,139,27,.35); text-decoration-thickness:.08em; text-underline-offset:.1em; }
+  .so-hero-copy { max-width:58ch; margin:0 0 30px; color:#56524A; font-size:clamp(15px,1.25vw,17px); line-height:1.68; animation:soRise .8s ease both; animation-delay:.16s; }
+  .so-hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:25px; animation:soRise .8s ease both; animation-delay:.22s; }
+  .so-hero-proof { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1px; overflow:hidden; border:1px solid rgba(28,24,12,.12); border-radius:14px; background:rgba(28,24,12,.12); animation:soRise .8s ease both; animation-delay:.28s; }
+  .so-hero-proof-item { min-width:0; padding:16px 14px; background:rgba(250,246,236,.88); }
+  .so-hero-proof-number { margin-bottom:6px; color:#1A180F; font-family:'Bricolage Grotesque',sans-serif; font-size:27px; font-weight:700; line-height:1; }
+  .so-hero-proof-label { color:#716B5D; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.04em; line-height:1.45; text-transform:uppercase; }
+  .so-hero-photo { position:relative; width:100%; max-width:450px; justify-self:end; animation:soRise .9s ease both; animation-delay:.12s; }
+  .so-hero-aura { position:absolute; inset:5% -8% 2%; border-radius:50%; background:radial-gradient(ellipse,rgba(200,242,80,.42),rgba(200,242,80,0) 68%); filter:blur(24px); pointer-events:none; }
+  .so-portrait-frame { position:relative; aspect-ratio:4/5; overflow:hidden; border:1px solid rgba(28,24,12,.12); border-radius:220px 220px 24px 24px; background:#D4CCB8; box-shadow:0 34px 80px -38px rgba(56,47,24,.55); transform:rotate(2deg); }
+  .so-portrait-frame img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 22%; transform:scale(1.02) rotate(-2deg); }
+  .so-hero-stamp { position:absolute; right:-18px; bottom:11%; display:flex; align-items:center; gap:10px; padding:13px 16px; border:1px solid rgba(28,24,12,.12); border-radius:13px; background:#FAF5EA; box-shadow:0 14px 34px -20px rgba(42,34,18,.5); color:#282419; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.04em; line-height:1.45; text-transform:uppercase; transform:rotate(-3deg); }
+  .so-hero-stamp strong { color:#718B1B; font-family:'Bricolage Grotesque',sans-serif; font-size:27px; letter-spacing:-.04em; }
   .so-card { transform: perspective(900px) rotateX(0deg) translateY(0); transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease, border-color .3s ease; }
   .so-card:hover { transform: perspective(900px) rotateX(2deg) translateY(-6px); box-shadow: 0 30px 60px -24px rgba(200,242,80,0.18); border-color: rgba(200,242,80,0.3) !important; }
   .so-project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:24px; }
@@ -92,13 +125,16 @@
   @keyframes soOrbit { from { transform:translate(-50%,-50%) rotateX(67deg) rotateZ(-18deg) rotateZ(0deg); } to { transform:translate(-50%,-50%) rotateX(67deg) rotateZ(-18deg) rotateZ(360deg); } }
   @media (max-width: 860px) { .so-web3-grid { grid-template-columns:1fr; } .so-web3-scene { min-height:420px; } }
   @media (max-width: 860px) {
-    .so-hero-grid { grid-template-columns: 1fr !important; }
-    .so-hero-photo { order: -1; max-width: 340px; width: 100%; margin: 0 auto; }
+    .so-hero-grid { grid-template-columns:minmax(0,1.1fr) minmax(250px,.8fr); gap:28px; }
+    .so-hero-proof { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .so-hero-stamp { right:-8px; }
   }
   @media (max-width: 720px) {
     header { flex-wrap:wrap; gap:14px; }
     .so-nav-links { order:3; width:100%; justify-content:space-between; gap:12px !important; }
-    .so-hero-h { font-size: 12vw !important; }
+    .so-hero-grid { grid-template-columns:1fr; padding-top:142px; gap:34px; }
+    .so-hero-h { font-size:clamp(38px,10.2vw,72px); }
+    .so-hero-photo { width:min(78%,360px); justify-self:center; margin-right:12px; }
     .so-sec-h { font-size: 10vw !important; }
   }
 * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -129,37 +165,35 @@
     </nav>
   </header>
 
-  <!-- HERO (cream) -->
-  <section id="top" style="position:relative; background:#EFE9DC; overflow:hidden;">
-    <div style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(132% 96% at 50% -12%, rgba(255,205,133,0.55), rgba(239,233,220,0) 56%), radial-gradient(96% 74% at 50% -4%, rgba(200,242,80,0.30), transparent 60%), linear-gradient(180deg,#F5F0E5 0%,#E7DFCD 100%);"></div>
-    <div class="so-hero-grid" style="position:relative; max-width:1320px; margin:0 auto; padding:clamp(118px,15vh,176px) clamp(20px,5vw,64px) clamp(56px,8vh,96px); display:grid; grid-template-columns:minmax(0,1.22fr) minmax(0,0.82fr); gap:clamp(28px,5vw,68px); align-items:center;">
-      <div>
-        <div style="display:flex; align-items:center; gap:13px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em; color:#6E6A5C; text-transform:uppercase; margin-bottom:28px; animation:soFade .8s ease both;">
-          <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#7d9a16; animation:soPulse 2s infinite;"></span>
-          Frontend-leaning Full-Stack Engineer · React/Node/Python · Lagos, Nigeria · WAT (UTC+1)
+  <!-- HERO -->
+  <section id="top" class="so-hero-section">
+    <div class="so-hero-grid">
+      <div class="so-hero-content">
+        <div class="so-hero-kicker">
+          <span class="so-hero-kicker-dot" aria-hidden="true"></span>
+          Available for select projects · Lagos, Nigeria
         </div>
-        <h1 class="so-hero-h" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(42px,5.6vw,84px); line-height:0.99; letter-spacing:-0.025em; color:#19170F; margin:0 0 30px; max-width:15ch; animation:soRise .8s ease both; animation-delay:.06s;">
-          I build <span style="background:var(--ac); color:#14140A; padding:0 .14em; border-radius:6px; box-decoration-break:clone; -webkit-box-decoration-break:clone;">fast</span>, accessible, crawlable interfaces that ship to production.
+        <h1 class="so-hero-h">
+          Fullstack Web<br>Developer.<br>I turn <em>ideas</em> into websites and mobile app products.
         </h1>
-        <p style="max-width:54ch; font-size:clamp(16px,1.4vw,19px); line-height:1.62; color:#56524A; margin:0 0 36px; animation:soRise .8s ease both; animation-delay:.14s;">
-          I’m Samuel Okediji, a frontend-leaning full-stack engineer with 5+ years building production websites and web applications. I work across frontend, backend, and infrastructure, with a focus on accessibility, performance, and crawlable content.
+        <p class="so-hero-copy">
+          I'm Samuel Okediji, a Fullstack Web Developer with 6+ years of experience building functional, scalable digital products across frontend, backend, and infrastructure. From concept and design through development, integrations, and deployment, I create responsive websites, web applications, and mobile app experiences with clean code and practical engineering.
         </p>
-        <div style="display:flex; flex-wrap:wrap; gap:13px; margin-bottom:24px; animation:soRise .8s ease both; animation-delay:.2s;">
+        <div class="so-hero-actions">
           <a href="#work" style="font-family:'JetBrains Mono',monospace; font-size:13px; text-decoration:none; color:#14140A; background:var(--ac); padding:14px 24px; border-radius:10px; font-weight:600; transition:transform .2s;" style-hover="transform:translateY(-2px);">View selected work ↓</a>
-          <a href="uploads/Samuel_Okediji_Frontend_Leaning_Full_Stack_CV.docx" download style="font-family:'JetBrains Mono',monospace; font-size:13px; text-decoration:none; color:#1C1A12; border:1px solid rgba(28,24,12,0.22); padding:14px 24px; border-radius:10px; transition:border-color .2s, background .2s;" style-hover="border-color:#1C1A12; background:rgba(28,24,12,0.04);">Download CV (.docx)</a>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:1px; background:rgba(28,24,12,0.13); border:1px solid rgba(28,24,12,0.13); border-radius:16px; overflow:hidden; animation:soRise .8s ease both; animation-delay:.3s;">
-          <div style="background:#F1EBDF; padding:22px 20px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:32px; line-height:1; color:#1A180F; margin-bottom:7px;">5+</div><div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.05em; color:#7C7768; text-transform:uppercase;">Years frontend</div></div>
-          <div style="background:#F1EBDF; padding:22px 20px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:32px; line-height:1; color:#1A180F; margin-bottom:7px;">25+</div><div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.05em; color:#7C7768; text-transform:uppercase;">Live sites shipped</div></div>
-          <div style="background:#F1EBDF; padding:22px 20px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:32px; line-height:1; color:#1A180F; margin-bottom:7px;">4+</div><div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.05em; color:#7C7768; text-transform:uppercase;">Years infra / DevOps</div></div>
-          <div style="background:#F1EBDF; padding:22px 20px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:32px; line-height:1; color:#1A180F; margin-bottom:7px;">7</div><div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.05em; color:#7C7768; text-transform:uppercase;">Industries served</div></div>
+        <div class="so-hero-proof">
+          <div class="so-hero-proof-item"><div class="so-hero-proof-number">25+</div><div class="so-hero-proof-label">Live sites shipped</div></div>
+          <div class="so-hero-proof-item"><div class="so-hero-proof-number">4+</div><div class="so-hero-proof-label">Years infra / DevOps</div></div>
+          <div class="so-hero-proof-item"><div class="so-hero-proof-number">7</div><div class="so-hero-proof-label">Industries served</div></div>
         </div>
       </div>
-      <div class="so-hero-photo" style="position:relative; animation:soRise .9s ease both; animation-delay:.12s; transform:perspective(1200px) rotateY(-4deg);">
-        <div style="position:absolute; left:50%; top:5%; transform:translateX(-50%); width:110%; height:90%; background:radial-gradient(58% 56% at 50% 32%, rgba(200,242,80,0.6), transparent 72%); filter:blur(28px); pointer-events:none;"></div>
-        <div style="position:relative; aspect-ratio:4/5; border-radius:240px 240px 24px 24px; overflow:hidden; box-shadow:0 38px 84px -34px rgba(74,62,30,0.55); border:1px solid rgba(28,24,12,0.08);">
-          <img src="assets/samuel-portrait.jpg" alt="Samuel Okediji, frontend-leaning full-stack engineer" style="width:100%; height:100%; object-fit:cover; object-position:center 22%; display:block;">
+      <div class="so-hero-photo">
+        <div class="so-hero-aura" aria-hidden="true"></div>
+        <div class="so-portrait-frame">
+          <img src="assets/samuel-portrait.jpg" alt="Samuel Okediji, Fullstack Web Developer">
         </div>
+        <div class="so-hero-stamp"><strong>6+</strong><span>years building<br>digital products</span></div>
       </div>
     </div>
   </section>
